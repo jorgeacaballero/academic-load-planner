@@ -6,6 +6,7 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
     @student = Student.new
+    @courses = Course.all
   end
 
   # GET /students/1
@@ -26,6 +27,11 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
+    courses = Array.new
+    params[:student]['course_ids'].each do |c|
+      courses.push(Course.find(c))
+    end
+    @student.courses = courses
 
     respond_to do |format|
       if @student.save
@@ -70,6 +76,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name)
+      params.require(:student).permit(:name, :course_ids)
     end
 end

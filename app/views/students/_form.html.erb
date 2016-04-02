@@ -11,9 +11,20 @@
     </div>
   <% end %>
 
-  <div class="form-inline">
+  <div class="form-group">
     <div class="form-group">
       <%= f.text_field :name, class: 'form-control', placeholder: 'Name', :autofocus => true %>
+    </div>
+    <div class="form-group">
+      <p>Courses:</p>
+      <ul style="list-style-type: none;">
+        <% @courses.each do |c| %>
+          <li>
+            <%= check_box_tag c.name, c.id, nil, {:name => "#{f.object_name}[course_ids][]"} %>
+            <%= label_tag c.id, c.name %>
+          </li>
+        <% end %>
+      </ul>
     </div>
     <%= f.submit 'Save', class: 'btn btn-primary' %>
   </div>
