@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Schedule Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Course</th>
+      <th>Start time</th>
+      <th>End rime</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @schedule_events.each do |schedule_event| %>
+      <tr>
+        <td><%= schedule_event.teacher %></td>
+        <td><%= schedule_event.course %></td>
+        <td><%= schedule_event.start_time %></td>
+        <td><%= schedule_event.end_rime %></td>
+        <td><%= link_to 'Show', schedule_event %></td>
+        <td><%= link_to 'Edit', edit_schedule_event_path(schedule_event) %></td>
+        <td><%= link_to 'Destroy', schedule_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Schedule event', new_schedule_event_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Teacher:</strong>
+  <%= @schedule_event.teacher %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @schedule_event.course %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @schedule_event.start_time %>
+</p>
+
+<p>
+  <strong>End rime:</strong>
+  <%= @schedule_event.end_rime %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_event_path(@schedule_event) %> |
+<%= link_to 'Back', schedule_events_path %>

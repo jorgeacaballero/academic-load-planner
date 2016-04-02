@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :schedule_events
+  resources :students
   resources :teachers
   resources :courses
   resources :rooms
