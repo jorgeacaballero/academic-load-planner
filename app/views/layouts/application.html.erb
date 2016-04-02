@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Fixed top navbar example for Bootstrap</title>
+    <title>ALP</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
@@ -19,18 +19,18 @@
       <div class="collapse" id="navbar-header">
         <div class="container-fluid bg-inverse p-a-1">
           <h3>Create a new schedule?</h3>
-          <p class="lead"><strong>Warning:</strong> This can take a while if the data you entered is a large set.</p>
+          <p class="lead"><strong>Warning:</strong> This action will replace the existing schedule. This can take a while if the data you entered is a large set.</p>
           <button type="button" class="btn btn-secondary">Start now!</button>
         </div>
       </div>
       <div class="navbar navbar-dark bg-primary navbar-static-top">
         <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Teachers</a>
-            <a class="nav-item nav-link" href="#">Students</a>
-            <a class="nav-item nav-link" href="#">Courses</a>
-            <a class="nav-item nav-link" href="#">Rooms</a>
-            <a class="nav-item nav-link" href="#">Schedules</a>
+            <a class="nav-item nav-link" href="/">Home</a>
+            <a class="nav-item nav-link" href="/teachers">Teachers</a>
+            <a class="nav-item nav-link" href="/students">Students</a>
+            <a class="nav-item nav-link" href="/courses">Courses</a>
+            <a class="nav-item nav-link" href="/rooms">Rooms</a>
+            <a class="nav-item nav-link" href="/schedules">Schedules</a>
         </div>
         <button class="navbar-toggler pull-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header">
           Run

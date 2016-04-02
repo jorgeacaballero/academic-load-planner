@@ -35,3 +35,7 @@ El software debe tener como salida un archivo en el cual indica:
 2. Una predicción de qué alumnos matricularán cada clase
 
 3. Un cálculo de la satisfacción promedio (1 a 5) de cada alumno con ese horario
+
+==Dependencies
+
+- http://excid3.github.io/simple_calendar/

@@ -19,3 +19,8 @@ body {
   min-height: 75rem;
   padding-top: 6rem;
 }
+
+img {
+    max-width: 100%;
+    height: auto;
+}
