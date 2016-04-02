@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>AcademicLoadPlanner</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<%= yield %>
+    <title>Fixed top navbar example for Bootstrap</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-</body>
+  <body>
+
+    <div class="pos-f-t">
+      <div class="collapse" id="navbar-header">
+        <div class="container-fluid bg-inverse p-a-1">
+          <h3>Create a new schedule?</h3>
+          <p class="lead"><strong>Warning:</strong> This can take a while if the data you entered is a large set.</p>
+          <button type="button" class="btn btn-secondary">Start now!</button>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-primary navbar-static-top">
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Teachers</a>
+            <a class="nav-item nav-link" href="#">Students</a>
+            <a class="nav-item nav-link" href="#">Courses</a>
+            <a class="nav-item nav-link" href="#">Rooms</a>
+            <a class="nav-item nav-link" href="#">Schedules</a>
+        </div>
+        <button class="navbar-toggler pull-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header">
+          Run
+        </button>
+      </div>
+    </div>
+
+    <%= yield %>
+
+  </body>
 </html>
