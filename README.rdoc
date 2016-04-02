@@ -1,28 +1,37 @@
-== README
+==Proyecto: Planificador de Carga Académica
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+UNITEC le ha solicitado que desarrolle un software que le permita planificar la carga académica trimestral maximizando la satisfacción de los alumnos. La carga académica consiste en indicar qué clases abrir, a qué hora e impartida por qué maestro, en qué aula. Para UNITEC es importante maximizar la satisfacción de sus estudiantes y según sus estudios la satisfacción de ellos viene por 2 cosas:
 
-Things you may want to cover:
+1. Si se abren todas las clases que puede/desea matricular (hasta 5 en un trimestre)
 
-* Ruby version
+2. Las clases le quedan "seguidas”
 
-* System dependencies
+El software debe tener las siguientes entradas:
 
-* Configuration
+1. Una lista de clases posibles
 
-* Database creation
+2. Una lista de maestros, las clases que pueden impartir además de las horas a las que pueden impartir clase
 
-* Database initialization
+3. Una lista de alumnos con las clases que puede llevar en el trimestre a planificar
 
-* How to run the test suite
+Restricciones y simplificaciones:
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Solo se imparten clases de Lunes a Jueves en los horarios de UNITEC
 
-* Deployment instructions
+2. Todas clases duran 1:20 diarias y todas se imparten 4 días a la semana de Lunes a Jueves.
 
-* ...
+3. Hay un número finito de aulas disponibles
 
+4. Los maestros no pueden impartir clases más que en las horas que han indicado
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+5. Todas las aulas tienen la misma capacidad de 40 alumnos
+
+6. Los alumnos estudian a tiempo complete así que tienen flexibilidad de horario.
+
+El software debe tener como salida un archivo en el cual indica:
+
+1. El horario de clases junto con su maestro y aula
+
+2. Una predicción de qué alumnos matricularán cada clase
+
+3. Un cálculo de la satisfacción promedio (1 a 5) de cada alumno con ese horario
