@@ -25,12 +25,12 @@
       </div>
       <div class="navbar navbar-dark bg-primary navbar-static-top">
         <div class="nav navbar-nav">
-            <a class="nav-item nav-link" href="/">Home</a>
-            <a class="nav-item nav-link" href="/teachers">Teachers</a>
-            <a class="nav-item nav-link" href="/students">Students</a>
-            <a class="nav-item nav-link" href="/courses">Courses</a>
-            <a class="nav-item nav-link" href="/rooms">Rooms</a>
-            <a class="nav-item nav-link" href="/schedules">Schedules</a>
+            <a class="nav-item nav-link <%= 'active' if request.path == '/' %>" href="/">Home</a>
+            <a class="nav-item nav-link <%= 'active' if request.path.starts_with? '/teachers' %>" href="/teachers">Teachers</a>
+            <a class="nav-item nav-link <%= 'active' if request.path.starts_with? '/students' %>" href="/students">Students</a>
+            <a class="nav-item nav-link <%= 'active' if request.path.starts_with? '/courses' %>" href="/courses">Courses</a>
+            <a class="nav-item nav-link <%= 'active' if request.path.starts_with? '/rooms' %>" href="/rooms">Rooms</a>
+            <a class="nav-item nav-link <%= 'active' if request.path.starts_with? '/schedule_events' %>" href="/schedule_events">Schedules</a>
         </div>
         <button class="navbar-toggler pull-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header">
           Run

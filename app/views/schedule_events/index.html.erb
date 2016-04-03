@@ -1,33 +1,138 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<h1>Listing Schedule Events</h1>
+  <h1>Weekly Planner</h1>
+  <br>
+  <p></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Teacher</th>
-      <th>Course</th>
-      <th>Start time</th>
-      <th>End rime</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @schedule_events.each do |schedule_event| %>
+  <table class="table table-hover table-sm">
+    <thead>
       <tr>
-        <td><%= schedule_event.teacher %></td>
-        <td><%= schedule_event.course %></td>
-        <td><%= schedule_event.start_time %></td>
-        <td><%= schedule_event.end_rime %></td>
-        <td><%= link_to 'Show', schedule_event %></td>
-        <td><%= link_to 'Edit', edit_schedule_event_path(schedule_event) %></td>
-        <td><%= link_to 'Destroy', schedule_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Time / Date</th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <tr>
+        <td>7:00 AM</td>
+        <td><ul><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>8:30 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>10:10 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>11:30 AM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1:00 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>2:30 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3:40 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>5:10 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>6:30 PM</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
 
-<br>
+  <br>
+  <h2>Detailed View</h2>
 
-<%= link_to 'New Schedule event', new_schedule_event_path %>
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th>ID/Section</th>
+        <th>Teacher</th>
+        <th>Course</th>
+        <th>Room</th>
+        <th>Start time</th>
+        <th>End rime</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @schedule_events.each do |schedule_event| %>
+        <tr>
+          <td><%= schedule_event.teacher.id %></td>
+          <td><%= schedule_event.teacher.name %></td>
+          <td><%= schedule_event.course.name %></td>
+          <td><%= schedule_event.room.name %></td>
+          <td><%= schedule_event.start_time.strftime("%I:%M%p") %></td>
+          <td><%= schedule_event.end_rime.strftime("%I:%M%p") %></td>
+          <td><%= link_to 'Show', schedule_event %></td>
+          <td><%= link_to 'Edit', edit_schedule_event_path(schedule_event) %></td>
+          <td><%= link_to 'Destroy', schedule_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <h2>Student Satisfaction</h2>
+
+  <table class="table table-hover table-sm">
+    <thead>
+      <tr>
+        <th>Student Name</th>
+        <th>Student Satisfaction Index</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @students.each do |s| %>
+      <tr>
+        <td><%= s.name %></td>
+        <td>0.00</td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

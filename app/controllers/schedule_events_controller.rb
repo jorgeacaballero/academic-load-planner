@@ -5,6 +5,7 @@ class ScheduleEventsController < ApplicationController
   # GET /schedule_events.json
   def index
     @schedule_events = ScheduleEvent.all
+    @students = Student.all
   end
 
   # GET /schedule_events/1
