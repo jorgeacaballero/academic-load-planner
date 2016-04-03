@@ -24,3 +24,9 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+.schedule {
+    list-style:none;
+    padding-left:0;
+    list-style-type: none;
+}​

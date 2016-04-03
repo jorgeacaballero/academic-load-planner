@@ -8,6 +8,32 @@ class ScheduleEventsController < ApplicationController
     @students = Student.all
   end
 
+  # GET /create_new_schedule
+  def create_new_schedule
+    # Delete current schedule
+    ScheduleEvent.delete_all()
+    # Order courses by ammount of students that need to take course
+    courses = Course.joins(:students).group("courses_students.course_id").order("COUNT(*) DESC") 
+    # From the top of the list start filling schedule based on teacher availability
+    courses.each do |c|
+      # lets check if there are more than one teacher and more than 40 students
+      if c.students.count > 40 && c.teachers.count > 1
+        # we can make two or more sections for this course
+        c.teachers.each do |t|
+          # check availability of each teacher and create sections based on availability
+        end
+      else
+        # we just need one section for this course
+        ScheduleEvent.create!(teacher: c.teachers.first, course: c, )
+      end
+    end
+    #   Don't schedule more than the # of available rooms and 40 students per room
+    # Save everything
+    # Send data
+    render json: courses
+    # Profit
+  end
+
   # GET /schedule_events/1
   # GET /schedule_events/1.json
   def show

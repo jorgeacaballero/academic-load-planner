@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160402234912) do
+ActiveRecord::Schema.define(version: 20160403030453) do
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160402234912) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "room_id"
+    t.integer  "time_order"
   end
 
   add_index "schedule_events", ["course_id"], name: "index_schedule_events_on_course_id"
