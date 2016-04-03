@@ -5,6 +5,7 @@ class ScheduleEventsController < ApplicationController
   # GET /schedule_events
   # GET /schedule_events.json
   def index
+    logger.warn "Rendering index"
     @schedule_events_7 = ScheduleEvent.where(time_order: 7)
     @schedule_events_8 = ScheduleEvent.where(time_order: 8)
     @schedule_events_10 = ScheduleEvent.where(time_order: 10)
@@ -20,6 +21,7 @@ class ScheduleEventsController < ApplicationController
 
   # GET /create_new_schedule
   def create_new_schedule
+    logger.warn "Staring a new schedule"
     # Delete current schedule
     ScheduleEvent.delete_all()
     # Order courses by ammount of students that need to take course
@@ -40,6 +42,8 @@ class ScheduleEventsController < ApplicationController
         schedule_event(c)
       end
     end
+
+    get_students_satisfaction()
     #   Don't schedule more than the # of available rooms and 40 students per room
     # Save everything
     # Send data

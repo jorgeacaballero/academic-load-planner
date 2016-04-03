@@ -150,7 +150,7 @@
       <% @students.each do |s| %>
       <tr>
         <td><%= s.name %></td>
-        <td>0.00</td>
+        <td><%= s.student_satisfaction.sat %></td>
       </tr>
       <% end %>
     </tbody>

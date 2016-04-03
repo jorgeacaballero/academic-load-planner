@@ -27,8 +27,17 @@ module ScheduleEventsHelper
     end
 
     def get_students_satisfaction()
-        Student.each do |s|
-    
+        StudentSatisfaction.delete_all()
+        Student.all.each do |s|
+            sat = 0.00
+            s.courses.each do |c|
+                if c.schedule_events.count > 0
+                    sat = sat + 1.00
+                end
+            end
+            sat = (sat.to_f/s.courses.count.to_f)*5.00
+            logger.warn "Staring a new schedule" + sat.to_s
+            StudentSatisfaction.create!(student: s, sat: sat)
         end
     end
 end
