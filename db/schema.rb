@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20160403030453) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.integer  "start_time"
+    t.integer  "end_time"
   end
 
 end

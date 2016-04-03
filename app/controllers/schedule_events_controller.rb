@@ -1,9 +1,19 @@
 class ScheduleEventsController < ApplicationController
+  include ScheduleEventsHelper
   before_action :set_schedule_event, only: [:show, :edit, :update, :destroy]
 
   # GET /schedule_events
   # GET /schedule_events.json
   def index
+    @schedule_events_7 = ScheduleEvent.where(time_order: 7)
+    @schedule_events_8 = ScheduleEvent.where(time_order: 8)
+    @schedule_events_10 = ScheduleEvent.where(time_order: 10)
+    @schedule_events_11 = ScheduleEvent.where(time_order: 11)
+    @schedule_events_13 = ScheduleEvent.where(time_order: 13)
+    @schedule_events_14 = ScheduleEvent.where(time_order: 14)
+    @schedule_events_15 = ScheduleEvent.where(time_order: 15)
+    @schedule_events_17 = ScheduleEvent.where(time_order: 17)
+    @schedule_events_18 = ScheduleEvent.where(time_order: 18)
     @schedule_events = ScheduleEvent.all
     @students = Student.all
   end
@@ -12,51 +22,22 @@ class ScheduleEventsController < ApplicationController
   def create_new_schedule
     # Delete current schedule
     ScheduleEvent.delete_all()
-    puts ScheduleEvent.count
     # Order courses by ammount of students that need to take course
     courses = Course.joins(:students).group("courses_students.course_id").order("COUNT(*) DESC") 
     # From the top of the list start filling schedule based on teacher availability
     courses.each do |c|
+      if c.students.count == 0 or c.teachers.count == 0
+      # check if there is no students at that course, continue
+      
+      elsif c.students.count > 40 and c.teachers.count > 1
       # lets check if there are more than one teacher and more than 40 students
-      if c.students.count > 40 and c.teachers.count > 1
         # we can make two or more sections for this course
         c.teachers.each do |t|
           # check availability of each teacher and create sections based on availability
         end
+      # we just need one section for this course
       else
-        # we just need one section for this course
-        # time codes:
-        # 7:00  = 0
-        # 8:30  = 1
-        # 10:10 = 2
-        # 11:30 = 3
-        # 1:00  = 4
-        # 2:30  = 5
-        # 3:40  = 6
-        # 5:10  = 7
-        # 6:30  = 8
-        time_order_code = -1
-        puts c.teachers.first.start_time.hour
-        if c.teachers.first.start_time.hour >= 7
-          time_order_code = 0
-        elsif c.teachers.first.start_time.hour >= 8
-          time_order_code = 1
-        elsif c.teachers.first.start_time.hour >= 10
-          time_order_code = 2
-        elsif c.teachers.first.start_time.hour >= 11
-          time_order_code = 3
-        elsif c.teachers.first.start_time.hour >= 13
-          time_order_code = 4
-        elsif c.teachers.first.start_time.hour >= 14
-          time_order_code = 5
-        elsif c.teachers.first.start_time.hour >= 15
-          time_order_code = 6
-        elsif c.teachers.first.start_time.hour >= 17
-          time_order_code = 7
-        elsif c.teachers.first.start_time.hour >= 18
-          time_order_code = 8
-        end
-        ScheduleEvent.create!(teacher: c.teachers.first, course: c, room: Room.first, time_order: c.teachers.first.start_time.hour)
+        schedule_event(c)
       end
     end
     #   Don't schedule more than the # of available rooms and 40 students per room

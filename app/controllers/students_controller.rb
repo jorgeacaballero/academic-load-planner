@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
   def index
     @students = Student.all
     @student = Student.new
-    @courses = Course.all
+    @courses = Course.all.limit(10)
   end
 
   # GET /students/1

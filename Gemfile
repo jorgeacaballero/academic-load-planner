@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,12 +26,16 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # App
 gem "simple_calendar", "~> 2.0"
+gem "namey"
+gem 'csv-importer'
 
 # Error handling
 group :development do
   gem "better_errors"
 end
 gem "binding_of_caller"
+
+# Db debugging 
 gem "rails-erd"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

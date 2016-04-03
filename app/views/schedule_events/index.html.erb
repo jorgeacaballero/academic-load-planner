@@ -13,90 +13,90 @@
     </thead>
     <tbody>
       <tr>
-        <td>7:00 AM</td>
+        <td>7:00 AM (<%= @schedule_events_7.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 7).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_7.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>
       </tr>
       <tr>
-        <td>8:30 AM</td>
+        <td>8:30 AM (<%= @schedule_events_8.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 8).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_8.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>      
       </tr>
       <tr>
-        <td>10:10 AM</td>
+        <td>10:10 AM (<%= @schedule_events_10.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 10).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_10.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>      
       </tr>
       <tr>
-        <td>11:30 AM</td>
+        <td>11:30 AM (<%= @schedule_events_11.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 11).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_11.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>      
       </tr>
       <tr>
-        <td>1:00 PM</td>
+        <td>1:00 PM (<%= @schedule_events_13.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 13).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_13.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>      
       </tr>
       <tr>
-        <td>2:30 PM</td>
+        <td>2:30 PM (<%= @schedule_events_14.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 14).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_14.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>      
         <tr>
-        <td>3:40 PM</td>
+        <td>3:40 PM (<%= @schedule_events_15.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 15).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_15.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>
       </tr>
       <tr>
-        <td>5:10 PM</td>
+        <td>5:10 PM (<%= @schedule_events_17.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 17).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_17.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>      
       </tr>
       <tr>
-        <td>6:30 PM</td>
+        <td>6:30 PM (<%= @schedule_events_18.count %>)</td>
         <td>
           <ul class="schedule">
-            <% @schedule_events.where(time_order: 18).each do |se| %>
-              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% @schedule_events_18.each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= truncate(se.course.name, :length => 100) %></li>
             <% end %>
           </ul>
         </td>      
@@ -115,8 +115,8 @@
         <th>Course</th>
         <th>Room</th>
         <th>Start time</th>
-        <th>End rime</th>
-        <th colspan="3"></th>
+        <th>Student Forecast</th>
+        <th>Destroy</th>
       </tr>
     </thead>
 
@@ -127,8 +127,8 @@
           <td><%= schedule_event.teacher.name %></td>
           <td><%= schedule_event.course.name %></td>
           <td><%= schedule_event.room.name %></td>
-          <td><%= link_to 'Show', schedule_event %></td>
-          <td><%= link_to 'Edit', edit_schedule_event_path(schedule_event) %></td>
+          <td><%= schedule_event.time_order %></td>
+          <td><%= schedule_event.course.students.count %></td>
           <td><%= link_to 'Destroy', schedule_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
       <% end %>
