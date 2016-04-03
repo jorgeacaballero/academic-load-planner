@@ -8,75 +8,98 @@
     <thead>
       <tr>
         <th>Time / Date</th>
-        <th>Monday</th>
-        <th>Tuesday</th>
-        <th>Wednesday</th>
-        <th>Thursday</th>
+        <th>Monday - Thursday</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>7:00 AM</td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 7).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>
       </tr>
       <tr>
         <td>8:30 AM</td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 8).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>      
       </tr>
       <tr>
         <td>10:10 AM</td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
-        <td><ul class="schedule"><li>101/1 - Arias - Clase</li><li>102/1 - Garcia - clase 2</li><li>104/1 - Moncada - clase 3</li></ul></td>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 10).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>      
       </tr>
       <tr>
         <td>11:30 AM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 11).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>      
       </tr>
       <tr>
         <td>1:00 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 13).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>      
       </tr>
       <tr>
         <td>2:30 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 14).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>      
+        <tr>
         <td>3:40 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 15).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>
       </tr>
       <tr>
         <td>5:10 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 17).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>      
       </tr>
       <tr>
         <td>6:30 PM</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+          <ul class="schedule">
+            <% @schedule_events.where(time_order: 18).each do |se| %>
+              <li><%= se.room.name %> - <%= se.teacher.name %> - <%= se.course.name %></li>
+            <% end %>
+          </ul>
+        </td>      
       </tr>
     </tbody>
   </table>
@@ -104,8 +127,6 @@
           <td><%= schedule_event.teacher.name %></td>
           <td><%= schedule_event.course.name %></td>
           <td><%= schedule_event.room.name %></td>
-          <td><%= schedule_event.start_time.strftime("%I:%M%p") %></td>
-          <td><%= schedule_event.end_rime.strftime("%I:%M%p") %></td>
           <td><%= link_to 'Show', schedule_event %></td>
           <td><%= link_to 'Edit', edit_schedule_event_path(schedule_event) %></td>
           <td><%= link_to 'Destroy', schedule_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
