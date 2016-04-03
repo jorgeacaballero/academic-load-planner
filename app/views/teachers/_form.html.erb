@@ -26,6 +26,18 @@
         <% end %>
       </ul>
     </div>
+    <div class="form_inline">
+      <div class="form_group">
+      <p>Availability:</p>
+        <%= f.label :start_time %>
+        <%= f.time_field :start_time, class: 'form-control' %>
+      </div>
+      <div class="form_group">
+        <%= f.label :end_time %>
+        <%= f.time_field :end_time, class: 'form-control'%>
+      </div>
+    </div>
+    <p></p>
     <%= f.submit 'Save', class: 'btn btn-primary' %>
   </div>
   
