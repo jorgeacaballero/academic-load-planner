@@ -21,6 +21,7 @@ class ScheduleEventsController < ApplicationController
 
   # GET /create_new_schedule
   def create_new_schedule
+    start = Time.now
     logger.warn "Staring a new schedule"
     # Delete current schedule
     ScheduleEvent.delete_all()
@@ -47,6 +48,12 @@ class ScheduleEventsController < ApplicationController
     #   Don't schedule more than the # of available rooms and 40 students per room
     # Save everything
     # Send data
+
+    finish = Time.now
+    diff = finish - start
+
+    logger.warn "create_new_schedule: " + diff.to_s
+
     respond_to do |format|
       format.html { redirect_to schedule_events_url, notice: 'Schedule was successfully created.' }
     end

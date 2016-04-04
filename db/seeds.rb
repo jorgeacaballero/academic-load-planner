@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 require 'namey'
 
-courses = ["Actuadores Electricos - Comp. Secc.383",
+courses_unitec = ["Actuadores Electricos - Comp. Secc.383",
 "Acuerdos Comerciales",
 "Acumulad. Y Vehículos Electr.
 Admin. De Ventas",
@@ -707,27 +707,30 @@ Urbanismo I",
 Ética Médica Ii - Lunes, Martes Y Viernes",
 "Ética Psicológica"]
 
+start = Time.now
 
 # Courses
-courses.each_with_index do |c, i|
-    Course.create!(id: i, name: c)
+courses_unitec.each_with_index do |c, i|
+   Course.create!(id: i, name: c)
 end
 
 # Students
-(1..1000).each do |n|
-    courses = Array.new
-    course_count = Course.count - 1
-    (1..10).each do |c|
-        courses.push(Course.find(rand(course_count)))
-    end
-    Student.create!(id: n, name: Namey::Generator.new.name, courses: courses)
+(2551..5000).each do |n|
+   courses = Array.new
+   course_count = Course.count - 1
+   (1..5).each do |c|
+       courses.push(Course.find(rand(course_count)))
+   end
+   name = Namey::Generator.new.name
+   p n.to_s + " - " + name + " - " + courses.count.to_s
+   Student.create!(id: n, name: name, courses: courses)
 end
 
 # Teachers
-(1..100).each do |n|
+(237..400).each do |n|
     courses = Array.new
     course_count = Course.count - 1
-    (1..6).each do |c|
+    (1..7).each do |c|
         courses.push(Course.find(rand(course_count)))
     end
     time_order_options = [7,8,10,11,13,14,15,17,18]
@@ -737,6 +740,12 @@ end
 end
 
 # Rooms
-(1..35).each do |n|
+(1..60).each do |n|
     Room.create!(id: n, name: "R" + n.to_s)
 end
+
+finish = Time.now
+
+diff = finish - start
+
+puts(diff)

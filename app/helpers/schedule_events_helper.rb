@@ -27,6 +27,7 @@ module ScheduleEventsHelper
     end
 
     def get_students_satisfaction()
+        start = Time.now
         StudentSatisfaction.delete_all()
         Student.all.each do |s|
             sat = 0.00
@@ -36,8 +37,11 @@ module ScheduleEventsHelper
                 end
             end
             sat = (sat.to_f/s.courses.count.to_f)*5.00
-            logger.warn "Staring a new schedule" + sat.to_s
             StudentSatisfaction.create!(student: s, sat: sat)
         end
+        finish = Time.now
+        diff = finish - start
+
+        logger.warn "get_students_satisfaction: " + diff.to_s
     end
 end
